@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import { Canvas } from 'reaflow';
 import './App.css';
 
 interface AppProps {}
@@ -16,23 +16,38 @@ function App({}: AppProps) {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <p>
-          Page has been open for <code>{count}</code> seconds.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
+      <Canvas
+        nodes={[
+          {
+            id: "1",
+            text: "1",
+          },
+          {
+            id: "2",
+          },
+          {
+            id: "2-1-1",
+            text: "2 > 2.1",
+            parent: "2",
+          },
+          {
+            id: "3",
+            text: "3",
+          },
+        ]}
+        edges={[
+          {
+            id: "1-2",
+            from: "1",
+            to: "2",
+          },
+          {
+            id: "2-3",
+            from: "2",
+            to: "3",
+          },
+        ]}
+      />
       </header>
     </div>
   );
